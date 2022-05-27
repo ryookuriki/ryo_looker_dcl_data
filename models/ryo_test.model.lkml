@@ -2,13 +2,15 @@ connection: "looker-dcl-data"
 
 # include all the views
 include: "/views/**/*.view"
+include: "/views/**/*.dashboard"
 
-datagroup: ryo_thesis_default_datagroup {
+
+datagroup: ryo_test_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
 
-persist_with: ryo_thesis_default_datagroup
+persist_with: ryo_test_default_datagroup
 
 explore: product_sheets {
   join: products {
@@ -18,13 +20,7 @@ explore: product_sheets {
   }
 }
 
-explore: inventory_items {
-  join: products {
-    type: left_outer
-    sql_on: ${inventory_items.product_id} = ${products.id} ;;
-    relationship: many_to_one
-  }
-}
+explore: products {}
 
 explore: orders {
   join: users {
@@ -33,8 +29,6 @@ explore: orders {
     relationship: many_to_one
   }
 }
-
-explore: products {}
 
 explore: users {}
 
@@ -63,3 +57,13 @@ explore: order_items {
     relationship: many_to_one
   }
 }
+
+explore: inventory_items {
+  join: products {
+    type: left_outer
+    sql_on: ${inventory_items.product_id} = ${products.id} ;;
+    relationship: many_to_one
+  }
+}
+
+explore: derived_table {}

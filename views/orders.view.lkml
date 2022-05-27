@@ -23,9 +23,7 @@ view: orders {
       week,
       month,
       quarter,
-      year,
-      month_name,
-      day_of_month
+      year
     ]
     sql: ${TABLE}.created_at ;;
   }
@@ -33,6 +31,7 @@ view: orders {
   dimension: status {
     type: string
     sql: ${TABLE}.status ;;
+    html: <a href="/dashboards/3?Status={{ value }}">{{ value }}</a> ;;
   }
 
   dimension: user_id {
@@ -45,20 +44,4 @@ view: orders {
     type: count
     drill_fields: [id, users.last_name, users.id, users.first_name, order_items.count]
   }
-
-  measure: cancelled_orders{
-    type:  count
-    filters: [status: "cancelled"]
-  }
-
-  measure: complete_orders{
-    type:  count
-    filters: [status: "complete"]
-  }
-
-  dimension: rowcount {
-    type:  number
-    sql: GENERATE_UUID() ;;
-  }
-
 }
