@@ -95,7 +95,7 @@ view: users {
     }
     allowed_value: {
       label: "End Time"
-      value: "end_times"
+      value: "end_time"
     }
   }
 
