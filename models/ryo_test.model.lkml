@@ -2,7 +2,7 @@ connection: "looker-dcl-data"
 
 # include all the views
 include: "/views/**/*.view"
-include: "/views/**/*.dashboard"
+# include: "/views/**/*.dashboard"
 
 
 datagroup: ryo_test_default_datagroup {
