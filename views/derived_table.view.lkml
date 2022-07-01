@@ -3,6 +3,7 @@ view: derived_table {
     sql: SELECT
       id,
       age,
+      ARRY_AGG(id ORDER BY {% parameter.part_char_aggregation_strategy %} deck_char_id,
       COUNT(*) AS count
       FROM
       `looker-dcl-data.orders.users`
@@ -13,6 +14,8 @@ view: derived_table {
       age
       ;;
   }
+
+  parameter: part_char_aggregation_strategy{}
 
   filter: gender {
     type: string

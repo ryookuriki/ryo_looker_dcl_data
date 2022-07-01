@@ -67,3 +67,5 @@ explore: inventory_items {
 }
 
 explore: derived_table {}
+
+explore: japanese_char_derived {}
