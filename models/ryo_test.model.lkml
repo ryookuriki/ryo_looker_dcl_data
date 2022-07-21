@@ -3,6 +3,7 @@ connection: "looker-dcl-data"
 # include all the views
 include: "/views/**/*.view"
 include: "/views/**/*.dashboard"
+# include: "*.json"
 
 
 datagroup: ryo_test_default_datagroup {
@@ -69,3 +70,5 @@ explore: inventory_items {
 explore: derived_table {}
 
 explore: japanese_char_derived {}
+
+explore: retailstudiostaging {}
